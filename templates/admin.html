@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Pending IP List </h1>
+    {% for ip in iplist %}
+        <div class='message'>
+            <form method="POST">
+                <h3>{{ ip.ip }}</h3>
+                <h3>{{ ip.useragent }}</h3>
+                <input name="ip" type="hidden" value="{{ip.ip}}"/>
+                <input name="useragent" type="hidden" value="{{ip.useragent}}"/>
+                <button name="status" value="blacklist">blacklist this ip</button>
+                <button name="status" value="allow">allow this ip</button>
+            </form>
+        </div>
+    {% endfor %}
+    <hr/>
+    <h1>Blacklist IP List </h1>
+    {% for ip in blacklist %}
+        <div class='message'>
+            <form method="POST">
+                <h3>{{ ip.ip }}</h3>
+                <h3>{{ ip.useragent }}</h3>
+                <input name="ip" type="hidden" value="{{ip.ip}}"/>
+                <input name="useragent" type="hidden" value="{{ip.useragent}}"/>
+                <button name="status" value="blacklist">blacklist this ip</button>
+                <button name="status" value="allow">allow this ip</button>
+            </form>
+        </div>
+    {% endfor %}
+    <hr/>
+    <h1>Allowed IP List </h1>
+    {% for ip in allowed %}
+        <div class='message'>
+            <form method="POST">
+                <h3>{{ ip.ip }}</h3>
+                <h3>{{ ip.useragent }}</h3>
+                <input name="ip" type="hidden" value="{{ip.ip}}"/>
+                <input name="useragent" type="hidden" value="{{ip.useragent}}"/>
+                <button name="status" value="blacklist">blacklist this ip</button>
+                <button name="status" value="allow">allow this ip</button>
+            </form>
+        </div>
+    {% endfor %}
+    <hr/>
+    {% endblock %}
